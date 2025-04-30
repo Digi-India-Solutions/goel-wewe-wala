@@ -11,7 +11,7 @@ const ReturnRefund = () => {
   return (
     <>
       <Helmet>
-        <title>Return & Refund Policy - panchgavya.amrit</title>
+        <title>Return & Refund Policy - </title>
         <meta
           name="description"
           content="Learn about our return and refund policy, including eligibility criteria, timelines, and the process for returns and refunds. Customer satisfaction is our priority."
@@ -52,7 +52,7 @@ const ReturnRefund = () => {
           <h1>Return & Refund Policy</h1>
           <div className="section-intro">
             <p>
-              At <strong>panchgavya.amrit</strong>, we are committed to
+              At <strong>goelmewewale</strong>, we are committed to
               providing high-quality products and services. If you're not
               satisfied with your purchase, we're here to help. Here's our
               detailed Return & Refund Policy.
