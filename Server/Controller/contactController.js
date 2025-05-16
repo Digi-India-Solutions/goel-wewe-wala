@@ -28,7 +28,7 @@ const createContact = async (req, res) => {
     <div style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 30px;">
         
         <!-- Header Section -->
-        <div style="background-color: #F58634; color: #ffffff; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+        <div style="background-color: #5D473A; color: #ffffff; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
             <h1 style="font-size: 24px; margin: 0;">New Contact Inquiry</h1>
         </div>
         
@@ -47,7 +47,7 @@ const createContact = async (req, res) => {
         </div>
         
         <!-- Footer Section -->
-        <div style="background-color: #F58634; color: #ffffff; text-align: center; padding: 15px; border-radius: 0 0 8px 8px; margin-top: 20px;">
+        <div style="background-color: #5D473A; color: #ffffff; text-align: center; padding: 15px; border-radius: 0 0 8px 8px; margin-top: 20px;">
             <p style="font-size: 14px; margin: 0;">&copy; 2024 Your Company Name | <a href="mailto:info@yourcompany.com" style="color: #ffffff; text-decoration: none; font-weight: bold;">Contact Us</a></p>
         </div>
 

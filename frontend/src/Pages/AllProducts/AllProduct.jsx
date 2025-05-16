@@ -380,7 +380,7 @@ const AllProduct = ({ refs, setRef }) => {
                     content="Explore our wide range of products including Ghee, Agarbatthi, and other medicinal products. Shop now for the best prices and quality."
                 />
             </Helmet>
-            <section className="productsPage">
+            <section className="productsPage responsive-margin" >
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 all-products product-top-spacing">

@@ -91,7 +91,7 @@ const Cart = ({ refs, setRef }) => {
       <section className="cart">
         <div className="container">
           <div className="col-md-12">
-            <h3 className="text-center mb-5" style={{ color: "#F58634" }}>Buy items worth <strong>₹6000</strong> or more to get free delivery!</h3>
+            <h3 className="text-center mb-5" style={{ color: "#5D473A" }}>Buy items worth <strong>₹6000</strong> or more to get free delivery!</h3>
           </div>
           <h2>Shopping Cart</h2>
           <div className="table-responsive">

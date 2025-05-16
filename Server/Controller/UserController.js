@@ -9,7 +9,7 @@ const getWelcomeEmailTemplate = (name) => `
     <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%; background-color: #F7F7F7;">
         <table style="max-width: 600px; margin: 50px auto; background: #FFFFFF; border: 1px solid #E8E8E8; border-radius: 10px;">
             <tr>
-                <td style="background: #F58634; padding: 20px; text-align: center;">
+                <td style="background: #5D473A; padding: 20px; text-align: center;">
                     <h1 style="color: #FFFFFF; font-size: 24px;">Welcome to Vedhlakshna</h1>
                 </td>
             </tr>
@@ -193,7 +193,7 @@ const getPasswordResetEmailTemplate = (name, resetLink) => `
     <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; width: 100%; background-color: #F7F7F7;">
         <table style="max-width: 600px; margin: 50px auto; background: #FFFFFF; border: 1px solid #E8E8E8; border-radius: 10px;">
             <tr>
-                <td style="background: #F58634; padding: 20px; text-align: center;">
+                <td style="background: #5D473A; padding: 20px; text-align: center;">
                     <h1 style="color: #FFFFFF; font-size: 24px;">Password Reset Request</h1>
                 </td>
             </tr>
@@ -204,7 +204,7 @@ const getPasswordResetEmailTemplate = (name, resetLink) => `
                         We received a request to reset your password. If you requested this change, click the link below to reset your password:
                     </p>
                     <p style="color: #555555; font-size: 16px; line-height: 1.5; margin: 20px 0;">
-                        <a href="${resetLink}" style="color: #F58634; text-decoration: none; font-size: 16px;">Reset Password</a>
+                        <a href="${resetLink}" style="color: #5D473A; text-decoration: none; font-size: 16px;">Reset Password</a>
                     </p>
                     <p style="color: #555555; font-size: 14px; line-height: 1.5; margin: 0;">
                         If you did not request this, please ignore this email.

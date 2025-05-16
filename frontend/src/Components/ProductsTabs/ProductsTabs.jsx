@@ -128,8 +128,8 @@ const ProductsTabs = () => {
         <div className="product_heading_tab">
           <div className="tabsection">
             <h2>
-              <b>Pure Ghee & More</b> <br />
-              Bringing Natural Goodness to Your Home!
+              <b>Pure Dry Fruits & More </b> <br />
+              Bringing Nature’s Goodness to Your Home!
             </h2>
           </div>
           <div className="tabs">
