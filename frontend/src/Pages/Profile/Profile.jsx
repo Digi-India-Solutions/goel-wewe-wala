@@ -11,14 +11,14 @@ const Profile = () => {
   const getUserData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/get-user/" + userId
+        "https://api.goelmewewale.com/api/get-user/" + userId
       );
       if (res.status === 200) {
         setData(res.data.data);
         const data=res?.data?.data
         // Assuming orders are fetched from a different API endpoint
         const ordersRes = await axios.get(
-          `http://localhost:8000/api/all-order-by-userid/${data.email}`
+          `https://api.goelmewewale.com/api/all-order-by-userid/${data.email}`
         );
         if (ordersRes.status === 200) {
           setOrders(ordersRes.data.data); // Set the orders from API response
