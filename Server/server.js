@@ -72,7 +72,6 @@ app.use(helmet()); // Set secure HTTP headers
 app.use(mongoSanitize()); // Prevent NoSQL injection
 app.use(xss()); // Sanitize user input to prevent XSS
 app.use(hpp()); // Prevent HTTP Parameter Pollution
-
 app.set(express.static("./Public"));
 
 app.get("/", (req, res) => {
@@ -95,9 +94,14 @@ app.use("/api" ,shiprocket)
 
 // Start the server
 const PORT = process.env.PORT || 8000;
-// //////////////aman///////////////
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running at ${process.env.PORT} port`);
+
+app.listen(PORT, () => {
+    console.log(`Server is running at ${PORT} port`);
+});
+app.get("/developer", (req, res) => {
+  res.send(
+    `<h1>It is great to see you on server of <a href="https://www.linkedin.com/in/nitin-gupta-b7a9a02a1/">Nitin Gupta</a> </h1>`
+  );
 });
 
 connectDB();

@@ -52,11 +52,11 @@ const Cart = ({ refs, setRef }) => {
 
   // Function to handle checkout redirect
   const handleCheckout = () => {
-    if (loginValue) {
+    // if (loginValue) {
       navigate("/product/product-details/cart/checkout");
-    } else {
-      navigate("/login", { state: { from: "/product/product-details/cart/checkout" } });
-    }
+    // } else {
+    //   navigate("/login", { state: { from: "/product/product-details/cart/checkout" } });
+    // }
   };
   return (
     <>

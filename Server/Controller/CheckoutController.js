@@ -9,9 +9,10 @@ const { getYear } = require("date-fns");
 const User = require("../Models/UserModel");
 
 const razorpayInstance = new Razorpay({
-    key_id: 'rzp_live_FjN3xa6p5RsEl6',
-    key_secret: 'CrSeAmgW4PgPIKzsNOaqL7QB',
+    key_id: process.env.RAZORPAY_KEY,
+    key_secret: process.env.RAZORPAY_SECRET_KEY,
 });
+
 
 // Helper function for email template
 const getOrderEmailTemplate = (checkout) => {
@@ -53,8 +54,8 @@ const getOrderEmailTemplate = (checkout) => {
         <body>
             <div class="container">
                 <div class="header">
-                    <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Vedlakshna Logo">
-                    <h2>New Order Received - Vedlakshna</h2>
+                    <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wala Logo">
+                    <h2>New Order Received - Goel Mewe Wala</h2>
                 </div>
                 <div class="section">
                     <h3>Order Information:</h3>
@@ -92,7 +93,7 @@ const getOrderEmailTemplate = (checkout) => {
                 </div>
                 <div class="footer">
                     <p>Thank you for your business!</p>
-                    <p>If you have any questions, feel free to <a href="mailto:support@vedlakshna.com">contact us</a>.</p>
+                    <p>If you have any questions, feel free to <a href="mailto:support@Goel Mewe Wala.com">contact us</a>.</p>
                 </div>
             </div>
         </body>
@@ -100,16 +101,16 @@ const getOrderEmailTemplate = (checkout) => {
     `;
 };
 exports.checkout = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const { userId, products, shippingAddress, paymentMethod, cupanCode } = req.body;
-
+console.log(req.body)
     const pincode = shippingAddress.postalCode;
     const subtotal = products.reduce((total, item) => total + (item.price * item.quantity), 0);
     let shippingCost = 200;
     let discountAmount = 0;
     let discountCupan = 0;
-
-    try {
+if(userId){
+ try {
         const updatedUser = await User.findByIdAndUpdate(
             userId,
             {
@@ -133,9 +134,8 @@ exports.checkout = async (req, res) => {
         console.error("Error updating user:", error);
         return res.status(500).json({ error: "Failed to update user info" });
     }
-
-
-
+}
+  
     // Fetch shipping charge based on pincode
     if (pincode) {
         try {
@@ -148,9 +148,6 @@ exports.checkout = async (req, res) => {
             console.error("Error fetching shipping charge:", error);
         }
     }
-
-
-
 
     // Validate coupon and calculate discount
 
@@ -187,7 +184,7 @@ exports.checkout = async (req, res) => {
     const uniqueUserId = `SS/WEB/${lastTwoDigits}-${nextYearDigits}/0${orderNumber}`;
     try {
         const checkout = new Checkout({
-            userId,
+           ...(userId && { userId }),
             orderUniqueId: uniqueUserId,
             products: products.map(item => ({
                 productName: item.productName,
@@ -228,7 +225,7 @@ exports.checkout = async (req, res) => {
             await transporter.sendMail({
                 from: "Panchgavya.amrit@gmail.com",
                 to: "Panchgavya.amrit@gmail.com",
-                subject: "New Order Received from Vedlakshna",
+                subject: "New Order Received from Goel Mewe Wala",
                 html: getOrderEmailTemplate(checkout)
             });
 
@@ -244,7 +241,7 @@ exports.checkout = async (req, res) => {
         await transporter.sendMail({
             from: "Panchgavya.amrit@gmail.com",
             to: "Panchgavya.amrit@gmail.com",
-            subject: "New Order Received from Vedlakshna",
+            subject: "New Order Received from Goel Mewe Wala",
             html: getOrderEmailTemplate(checkout)
         });
 
@@ -379,7 +376,7 @@ exports.deleteOrder = async (req, res) => {
 
 exports.getorderByUserID = async (req, res) => {
     try {
-        const data = await Checkout.find({ userId: req.params.id })
+        const data = await Checkout.find({ "shippingAddress.email": req.params.id })
         if (!data) {
             return res.status(404).json({
                 success: false,
