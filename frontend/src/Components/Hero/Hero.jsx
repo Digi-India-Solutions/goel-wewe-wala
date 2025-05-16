@@ -28,7 +28,7 @@ const Hero = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/all-banner"
+          "https://api.goelmewewale.com/api/all-banner"
         );
         const newData = response.data.banners;
         const filterData = newData.filter((x) => x.bannerStatus === true);
@@ -46,7 +46,7 @@ const Hero = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/get-product");
+      const response = await axios.get("https://api.goelmewewale.com/api/get-product");
       const productRecord = response.data.products;
       const filterbestseller = productRecord.filter(
         (x) => x.bestseller === true
@@ -222,7 +222,7 @@ const Hero = () => {
 
   const getArticalsData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/all-articals");
+      const res = await axios.get("https://api.goelmewewale.com/api/all-articals");
       setArticleArr(res.data); // Assuming the API returns an array of articles
     } catch (error) {
       console.log(error);
