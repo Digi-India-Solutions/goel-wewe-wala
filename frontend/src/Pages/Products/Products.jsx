@@ -112,10 +112,11 @@ const Products = () => {
 
   const addToCart = (product) => {
     if (!product) return;
+console.log("product",product);
 
     const quantity = 1; // or get from state/input
     const selectedWeight = "500g"; // or get from state/input
-    const price = product.price; // or calculate based on selectedWeight
+    const price = product.productInfo[0].productPrice; // or calculate based on selectedWeight
 
     if (quantity < 1) {
       Swal.fire({
