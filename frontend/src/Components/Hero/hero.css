@@ -16,7 +16,8 @@
   color: white;
   border-radius: 50%;
   font-size: 20px;
-  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,7 +190,6 @@
   text-decoration: none;
 }
 
-
 .product-image {
   margin: auto;
   width: 100%;
@@ -227,7 +227,7 @@
   /* margin: 8px 0; */
 }
 
-.current{
+.current {
   font-size: 22px;
   color: green;
   font-weight: 600;
@@ -343,6 +343,9 @@ select:focus-visible {
 
 /* product details section  */
 
+.productDetailsCols {
+  background: #eaecd7;
+}
 .productDetailsCols .fruitvegitabls1 {
   background-image: url(../../images/HeroImage/cookies.jpg);
   background-size: cover;
@@ -433,7 +436,8 @@ select:focus-visible {
 /* article section */
 
 .article {
-  padding: 2rem 0rem;
+  padding: 3rem 0rem;
+  background: #eaecd7;
 }
 
 .article_card {
@@ -474,8 +478,8 @@ select:focus-visible {
 
 .cartimagediv {
   display: flex;
-  justify-Content: center;
-  align-Items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .cartImage {
@@ -485,21 +489,15 @@ select:focus-visible {
 
 /* ////////////////////////aman///////////////////// */
 
-
-
 .product-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   /* margin-left: -45px; */
   /* border-radius: -1px; */
-  
 }
 
-
 @media only screen and (max-width: 768px) {
-
-  
   .cartImage {
     height: 130px;
     width: 100%;
@@ -594,11 +592,9 @@ select:focus-visible {
     font-size: 12px;
   }
 
-  .current{
+  .current {
     font-size: 16px;
-
   }
-  
 
   .original-price {
     font-size: 12px;
@@ -650,5 +646,4 @@ select:focus-visible {
   .price {
     width: 100%;
   }
-
 }
