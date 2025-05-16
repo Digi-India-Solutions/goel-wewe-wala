@@ -77,11 +77,7 @@ const Header = ({refs, setRef}) => {
                 style={{ color: "var(--themeColor)" }}
                 direction=""
               >
-               गोर गोयल उच्च गुणवत्ता वाले मेवा उत्पादों के 
-               लिए प्रसिद्ध हैं, जिनमें बादाम, काजू, किशमिश, 
-               अंजीर और अखरोट शामिल हैं। ये उत्पाद पोषण से भरपूर, 
-               शुद्ध और स्वादिष्ट होते हैं, जो स्वास्थ्य के प्रति सजग उपभोक्ताओं 
-               के लिए उपयुक्त हैं।​
+               Goel Mewe Wala is known for its premium quality dry fruits, including almonds, cashews, raisins, figs, and walnuts. Each product is packed with nutrition, purity, and rich taste — making them the perfect choice for health-conscious customers.
 
               </marquee>
             </div>

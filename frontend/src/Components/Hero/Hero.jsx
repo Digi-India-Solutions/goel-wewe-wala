@@ -465,8 +465,8 @@ const Hero = () => {
 
       <section>
         <div className="container">
-          <div className="row mt-3">
-            <div className="col-md-12 mt-2">
+          <div className="row mt-3 mb-3">
+            <div className="col-md-12 mt-2 mb-2">
               <div className="cartimagediv" style={{}}>
                 <img src={offer} alt="" className="cartImage" />
               </div>
