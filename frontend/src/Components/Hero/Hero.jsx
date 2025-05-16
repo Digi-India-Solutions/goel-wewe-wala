@@ -46,15 +46,15 @@ const Hero = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8000/api/get-product"
-      );
+      const response = await axios.get("http://localhost:8000/api/get-product");
       const productRecord = response.data.products;
       const filterbestseller = productRecord.filter(
         (x) => x.bestseller === true
       );
 
-      setProducts(filterbestseller.filter((product) => product.productStatus === true));
+      setProducts(
+        filterbestseller.filter((product) => product.productStatus === true)
+      );
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -83,7 +83,6 @@ const Hero = () => {
       setSelectedWeights(defaultWeights);
     }
   }, [products]);
-
 
   const handleWeightChange = (productId, productWeight) => {
     const selectedProduct = products.find(
@@ -148,9 +147,33 @@ const Hero = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 1, infinite: true, dots: true, }, },
-      { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 2, infinite: true, dots: false, }, },
-      { breakpoint: 360, settings: { dots: false, infinite: true, slidesToShow: 2, slidesToScroll: 1, }, },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 360,
+        settings: {
+          dots: false,
+          infinite: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
 
@@ -162,9 +185,28 @@ const Hero = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: true, }, },
-      { breakpoint: 600, settings: { slidesToShow: 3, infinite: true, dots: false, slidesToScroll: 1, }, },
-      { breakpoint: 480, settings: { slidesToShow: 2, dots: false, slidesToScroll: 1, }, },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+          dots: false,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 2, dots: false, slidesToScroll: 1 },
+      },
     ],
   };
 
@@ -180,17 +222,16 @@ const Hero = () => {
 
   const getArticalsData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/all-articals")
+      const res = await axios.get("http://localhost:8000/api/all-articals");
       setArticleArr(res.data); // Assuming the API returns an array of articles
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getArticalsData()
-  }, [])
-
+    getArticalsData();
+  }, []);
 
   // add by aman tiwari
 
@@ -203,21 +244,23 @@ const Hero = () => {
 
     if (quantity < 1) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Please select at least one item.',
+        icon: "error",
+        title: "Oops...",
+        text: "Please select at least one item.",
       });
       return;
     }
 
     const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
-    const isProductInCart = existingCart.some((item) => item.productId === product._id);
+    const isProductInCart = existingCart.some(
+      (item) => item.productId === product._id
+    );
 
     if (isProductInCart) {
       Swal.fire({
-        icon: 'warning',
-        title: 'Product Already in Cart',
-        text: 'This product is already in your cart.',
+        icon: "warning",
+        title: "Product Already in Cart",
+        text: "This product is already in your cart.",
       });
     } else {
       const cartProduct = {
@@ -231,14 +274,13 @@ const Hero = () => {
       existingCart.push(cartProduct);
       sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
       Swal.fire({
-        icon: 'success',
-        title: 'Added to Cart',
+        icon: "success",
+        title: "Added to Cart",
         text: `${product.productName} has been added to your cart.`,
       });
       navigate("/cart");
     }
   };
-
 
   return (
     <>
@@ -343,48 +385,50 @@ const Hero = () => {
                         <div className="price text-end">
                           {selectedWeights[product._id] ? (
                             <>
-                              {selectedWeights[product._id]?.discountPercentage >
-                                0 ? (
+                              {selectedWeights[product._id]
+                                ?.discountPercentage > 0 ? (
                                 <>
-                                <div>
-                                  <span className="current-price">
-                                    <del>
-                                      &#8377;{" "}
+                                  <div>
+                                    <span className="current-price">
+                                      <del>
+                                        &#8377;{" "}
+                                        {
+                                          selectedWeights[product._id]
+                                            ?.originalPrice
+                                        }
+                                      </del>
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <span className="original-price">
+                                      Off{" "}
                                       {
                                         selectedWeights[product._id]
-                                          ?.originalPrice
+                                          ?.discountPercentage
                                       }
-                                    </del>
-                                  </span>
-                                </div>
-                                <div>
-                                  <span className="original-price">
-                                    Off{" "}
-                                    {
-                                      selectedWeights[product._id]
-                                        ?.discountPercentage
-                                    }
-                                    %
-                                  </span>
-                                </div>
-                                <div>
-                                  <span className="current">
-                                    &#8377; {selectedWeights[product._id]?.price}
-                                  </span>
-                                </div>
+                                      %
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <span className="current">
+                                      &#8377;{" "}
+                                      {selectedWeights[product._id]?.price}
+                                    </span>
+                                  </div>
                                 </>
                               ) : (
                                 <div>
-                                <span className="current">
-                                  &#8377; {selectedWeights[product._id]?.price}
-                                </span>
+                                  <span className="current">
+                                    &#8377;{" "}
+                                    {selectedWeights[product._id]?.price}
+                                  </span>
                                 </div>
                               )}
                             </>
                           ) : (
                             <>
-                              {product.productInfo[0].productDiscountPercentage >
-                                0 ? (
+                              {product.productInfo[0]
+                                .productDiscountPercentage > 0 ? (
                                 <>
                                   <span className="current-price">
                                     <del>
@@ -419,7 +463,10 @@ const Hero = () => {
                       </div>
                       {/* </Link> */}
 
-                      <label htmlFor={`pot-${product._id}`} className="pot-label">
+                      <label
+                        htmlFor={`pot-${product._id}`}
+                        className="pot-label"
+                      >
                         *Weight:
                       </label>
                       <select
@@ -429,7 +476,6 @@ const Hero = () => {
                           handleWeightChange(product._id, e.target.value)
                         }
                       >
-
                         {product.productInfo.map((info) => (
                           <option
                             key={info.productweight}
@@ -439,7 +485,14 @@ const Hero = () => {
                           </option>
                         ))}
                       </select>
-                      <div className="" style={{ display: 'flex', justifyContent: 'space-between', gap: 5 }}>
+                      <div
+                        className=""
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          gap: 5,
+                        }}
+                      >
                         <button
                           onClick={() => addToCart(product)}
                           className="add-to-cart"
@@ -450,8 +503,10 @@ const Hero = () => {
                         {/* remove conflict  */}
                         <button
                           onClick={() => handleViewDetails(product._id)}
-                          className="add-to-cart" >
-                          View Details <i class="bi bi-chevron-double-right"></i>
+                          className="add-to-cart"
+                        >
+                          View Details{" "}
+                          <i class="bi bi-chevron-double-right"></i>
                         </button>
                       </div>
                     </div>
@@ -481,10 +536,13 @@ const Hero = () => {
             <div className="col-md-7">
               <h4>Pure Ghee, Pure Health</h4>
               <h2>
-                <b>Nature’s Treasure</b> Premium Dry Fruits and Wholesome Goodness for You.
+                <b>Nature’s Treasure</b> Premium Dry Fruits and Wholesome
+                Goodness for You.
               </h2>
               <p>
-                Power up with the pure energy of nature’s finest dry fruits — handpicked for taste, packed for wellness. Your health journey just got delicious!
+                Power up with the pure energy of nature’s finest dry fruits —
+                handpicked for taste, packed for wellness. Your health journey
+                just got delicious!
               </p>
               <Link className="button_" to="/all-products">
                 Check More Products <i class="bi bi-bag"></i>
@@ -523,7 +581,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="productDetailsCols">
+      <section className="productDetailsCols py-5">
         <div className="container">
           <div className="row">
             <div className="col-md-6 mb-2">
@@ -533,12 +591,12 @@ const Hero = () => {
                     <h6>Frozen Fruits</h6>
                     <h4>Best Quality Frozen Fruits</h4>
                     <p>
-                      In the Frozen Fruits category, customers can enjoy
-                      a vibrant selection of fruits, harvested at peak ripeness
-                      and flash-frozen to lock in their natural flavor and nutrition.
-                      From everyday favorites to exotic varieties, this section offers
-                      the perfect
-                      ingredients for smoothies, desserts, and healthy snacking.
+                      In the Frozen Fruits category, customers can enjoy a
+                      vibrant selection of fruits, harvested at peak ripeness
+                      and flash-frozen to lock in their natural flavor and
+                      nutrition. From everyday favorites to exotic varieties,
+                      this section offers the perfect ingredients for smoothies,
+                      desserts, and healthy snacking.
                     </p>
                     {/* <Link className="button_" to="">
                       Show More
@@ -551,16 +609,14 @@ const Hero = () => {
               <div className="fruitvegitabls2">
                 <div className="overlay">
                   <h6>Dry Fruits</h6>
-                  <h4>Best Quality Dry Fruits
-                  </h4>
+                  <h4>Best Quality Dry Fruits</h4>
                   <p>
-                    In the Dry Fruits category, customers can
-                    discover a premium selection of nutrient-packed
-                    dried fruits, carefully sourced and dried to
-                    perfection. Whether you’re looking for a quick
-                    snack, a boost of energy, or a natural ingredient
-                    for your recipes, this section offers the finest dried
-                    fruits, rich in flavor and health benefits.
+                    In the Dry Fruits category, customers can discover a premium
+                    selection of nutrient-packed dried fruits, carefully sourced
+                    and dried to perfection. Whether you’re looking for a quick
+                    snack, a boost of energy, or a natural ingredient for your
+                    recipes, this section offers the finest dried fruits, rich
+                    in flavor and health benefits.
                   </p>
                   {/* <Link className="button_" to="">
                     Show More
@@ -571,24 +627,21 @@ const Hero = () => {
             <div className="col-md-3 mb-2">
               <div className="fruitvegitabls3">
                 <div className="overlay">
-                  <h6>Shilajit
-                  </h6>
-                  <h4>Pure and Authentic Shilajit
-                  </h4>
+                  <h6>Shilajit</h6>
+                  <h4>Pure and Authentic Shilajit</h4>
                   <p>
-                    In the Shilajit category, customers can
-                    discover the power of nature’s most potent
-                    mineral supplement. Sourced from the pristine
-                    heights of the Himalayas, our Shilajit is pure,
-                    unrefined, and packed with essential minerals and
-                    nutrients. Perfect for boosting energy, enhancing
-                    vitality, and promoting overall wellness, this natural supplement is a must-have for a balanced and healthy lifestyle.
+                    In the Shilajit category, customers can discover the power
+                    of nature’s most potent mineral supplement. Sourced from the
+                    pristine heights of the Himalayas, our Shilajit is pure,
+                    unrefined, and packed with essential minerals and nutrients.
+                    Perfect for boosting energy, enhancing vitality, and
+                    promoting overall wellness, this natural supplement is a
+                    must-have for a balanced and healthy lifestyle.
                   </p>
                   {/* <Link className="button_" to="">
     Show More
   </Link> */}
                 </div>
-
               </div>
             </div>
           </div>
@@ -609,7 +662,9 @@ const Hero = () => {
                       <div className="article_card">
                         <img src={item.image} alt="" />
                         <h5>
-                          {item.name.length > 40 ? `${item.name.slice(0, 40)}...` : item.name}
+                          {item.name.length > 40
+                            ? `${item.name.slice(0, 40)}...`
+                            : item.name}
                         </h5>
 
                         <p>
