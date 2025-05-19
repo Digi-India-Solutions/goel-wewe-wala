@@ -211,8 +211,9 @@ const Checkout = () => {
             text: "Please wait while we place your order.",
             allowOutsideClick: false,
             allowEscapeKey: false,
+            showConfirmButton: false, // ❌ Hides the "OK" button
             willOpen: () => {
-              Swal.showLoading();
+              Swal.showLoading(); // Shows a loading spinner
             },
           });
           const res = await axios.post(
@@ -254,7 +255,7 @@ const Checkout = () => {
                   contact: shippingAddress.phone,
                 },
                 theme: {
-                  color: "#F37254", // Customize theme color
+                  color: "#0000", // Customize theme color
                 },
               };
               const rzp1 = new window.Razorpay(options);

@@ -31,6 +31,10 @@ const allowedOrigins = [
     'https://goelmewewale.com',
     "https://www.goelmewewale.com",
     'https://admin.goelmewewale.com',
+    'https://api.goelmewewale.com',
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
 ];
 
 // CORS configuration
