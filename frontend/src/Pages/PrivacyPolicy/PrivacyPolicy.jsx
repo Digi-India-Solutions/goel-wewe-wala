@@ -11,10 +11,10 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>Privacy & Policy - Goel Mewe Wala</title>
+        <title>Privacy & Policy - Goel Mewe Wale</title>
         <meta
           name="description"
-          content="Learn how Goel Mewe Wala collects, uses, and protects your personal information. Your privacy and trust are important to us."
+          content="Learn how Goel Mewe Wale collects, uses, and protects your personal information. Your privacy and trust are important to us."
         />
       </Helmet>
 
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
       <section className="privacy-policy-section">
         <div className="container">
           <h1>Privacy & Policy</h1>
-          <p>Goel Mewe Wala is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website, place an order, or engage with our services.</p>
+          <p>Goel Mewe Wale is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website, place an order, or engage with our services.</p>
 
           <h2>1. Information We Collect</h2>
           <p>We collect the following types of information to enhance your shopping experience:</p>

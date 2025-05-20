@@ -48,13 +48,14 @@ const ProductsTabs = () => {
       },
     ],
   };
-  
 
   useEffect(() => {
-    axios.get("https://api.goelmewewale.com/api/all-category").then((response) => {
-      setCategories(response.data);
-      if (response.data.length > 0) setActiveTab(response.data[0]._id);
-    });
+    axios
+      .get("https://api.goelmewewale.com/api/all-category")
+      .then((response) => {
+        setCategories(response.data);
+        if (response.data.length > 0) setActiveTab(response.data[0]._id);
+      });
   }, []);
 
   useEffect(() => {
@@ -65,12 +66,15 @@ const ProductsTabs = () => {
           const filteredProducts = response.data.products.filter(
             (product) => product.categoryName._id === activeTab
           );
-          setProducts(filteredProducts.filter((product) => product.productStatus === true));
+          setProducts(
+            filteredProducts.filter((product) => product.productStatus === true)
+          );
 
           // Initialize selected weights for each product
           const initialWeights = {};
           filteredProducts.forEach((product) => {
-            initialWeights[product._id] = product.productInfo[0]?.productweight || "";
+            initialWeights[product._id] =
+              product.productInfo[0]?.productweight || "";
           });
           setSelectedWeights(initialWeights);
         })
@@ -114,7 +118,6 @@ const ProductsTabs = () => {
     }
   };
 
-
   function truncateText(text, wordLimit) {
     const words = text.split(" ");
     if (words.length > wordLimit) {
@@ -136,9 +139,11 @@ const ProductsTabs = () => {
             {categories.slice(0, 7).map((category) => (
               <button
                 key={category._id}
-                className={`tab-button ${activeTab === category._id ? "active" : ""}`}
+                className={`tab-button ${
+                  activeTab === category._id ? "active" : ""
+                }`}
                 onClick={() => setActiveTab(category._id)}
-                style={{ textTransform: "capitalize", fontSize: '14px' }}
+                style={{ textTransform: "capitalize", fontSize: "14px" }}
               >
                 {category.categoryName}
               </button>
@@ -157,7 +162,10 @@ const ProductsTabs = () => {
                   );
 
                   return (
-                    <div key={product._id} style={{ width: "100%", background: 'red' }}>
+                    <div
+                      key={product._id}
+                      style={{ width: "100%", background: "red" }}
+                    >
                       <div className="product-card">
                         {/* <Link to={"/product/product-details"}> */}
                         <div className="product-image">
@@ -167,37 +175,49 @@ const ProductsTabs = () => {
                           />
                         </div>
                         <div className="p-2">
-
                           <div className="productName">
-                            <h3 className="product-title">{truncateText(product.productName, 3)}</h3>
+                            <h3 className="product-title">
+                              {truncateText(product.productName, 3)}
+                            </h3>
                             <div className="price text-end">
-                              {selectedProductInfo?.productDiscountPercentage > 0 ? (
+                              {selectedProductInfo?.productDiscountPercentage >
+                              0 ? (
                                 <>
                                   <div>
                                     <span className="current-price">
-                                      <del>₹ {selectedProductInfo?.productPrice || "0.00"}</del>
+                                      <del>
+                                        ₹{" "}
+                                        {selectedProductInfo?.productPrice ||
+                                          "0.00"}
+                                      </del>
                                     </span>
                                   </div>
                                   <div>
                                     <span className="original-price">
-                                      Off {selectedProductInfo.productDiscountPercentage} %
+                                      Off{" "}
+                                      {
+                                        selectedProductInfo.productDiscountPercentage
+                                      }{" "}
+                                      %
                                     </span>
                                   </div>
                                   <div>
                                     {selectedProductInfo?.productFinalPrice && (
-                                      <span className="current">₹ {selectedProductInfo.productFinalPrice}</span>
+                                      <span className="current">
+                                        ₹{" "}
+                                        {selectedProductInfo.productFinalPrice}
+                                      </span>
                                     )}
                                   </div>
                                 </>
                               ) : (
                                 <div>
-                                  selectedProductInfo?.productFinalPrice && (
-                                  <span className="current">₹ {selectedProductInfo.productFinalPrice}</span>
-                                  )
+                                  <span className="current">
+                                    ₹ {selectedProductInfo.productFinalPrice}
+                                  </span>
                                 </div>
                               )}
                             </div>
-
                           </div>
                           {/* </Link> */}
                           <label
@@ -210,7 +230,9 @@ const ProductsTabs = () => {
                             id={`pot-${product._id}`}
                             className="pot-select"
                             value={selectedWeight || ""}
-                            onChange={(e) => handleWeightChange(product._id, e.target.value)}
+                            onChange={(e) =>
+                              handleWeightChange(product._id, e.target.value)
+                            }
                           >
                             <option value="">--- Please Select ---</option>
                             {product.productInfo.map((info, idx) => (
@@ -220,7 +242,14 @@ const ProductsTabs = () => {
                             ))}
                           </select>
 
-                          <div className="" style={{ display: 'flex', justifyContent: 'space-between', gap: 5 }}>
+                          <div
+                            className=""
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              gap: 5,
+                            }}
+                          >
                             <button
                               onClick={() => handleViewDetails(product._id)}
                               className="add-to-cart"

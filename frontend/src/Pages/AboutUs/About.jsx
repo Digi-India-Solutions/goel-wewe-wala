@@ -59,7 +59,7 @@ const About = () => {
               <h2>About Us – GoEalWewala</h2>
             </div>
             <p>
-            At Goel Mewe Wala, we bring you the finest selection 
+            At Goel Mewe Wale, we bring you the finest selection 
             of dry fruits, nuts, and spices, sourced with utmost 
             care and dedication to purity, quality, and health. Our
              journey is rooted in a passion for delivering nature’s
@@ -84,7 +84,7 @@ const About = () => {
               </h2>
             </div>
             <p>
-            Goel Mewe Wala was founded in 2013 at 
+            Goel Mewe Wale was founded in 2013 at 
             Rohini, Delhi, with a simple yet powerful 
             vision — to offer premium-quality dry fruits, 
             nuts, and spices that enrich lives with health 
@@ -109,7 +109,7 @@ const About = () => {
               </h2>
             </div>
             <p>
-            At Goel Mewe Wala, quality is our promise, 
+            At Goel Mewe Wale, quality is our promise, 
             and integrity is our principle. Every product we 
             offer is carefully selected, processed, and packaged 
             to retain its natural taste, nutrition, and 
@@ -159,7 +159,7 @@ const About = () => {
             We aim to be India’s most trusted 
             brand for dry fruits, nuts, and spices 
             by offering authentic, healthy, and ethically
-            sourced products.At Goel Mewe Wala, we believe 
+            sourced products.At Goel Mewe Wale, we believe 
             that by staying true to our roots and values, we 
             can deliver excellence to every home while making a 
             positive impact on the world around us.            </p>

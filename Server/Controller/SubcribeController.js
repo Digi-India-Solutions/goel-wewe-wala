@@ -22,13 +22,13 @@ exports.createSubscription = async (req, res) => {
             subject: "New Subscription Notification",
             html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wala Logo" style="width: 150px; margin-bottom: 20px;">
+            <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wale Logo" style="width: 150px; margin-bottom: 20px;">
             <h2>New Subscription Received!</h2>
             <p>Dear Admin,</p>
-            <p>A new user has subscribed to Goel Mewe Wala updates using the following email:</p>
+            <p>A new user has subscribed to Goel Mewe Wale updates using the following email:</p>
             <p><strong>Email:</strong> ${subscribeEmail}</p>
             <p>Regards,</p>
-            <p><strong>Goel Mewe Wala Team</strong></p>
+            <p><strong>Goel Mewe Wale Team</strong></p>
           </div>
         `,
         };

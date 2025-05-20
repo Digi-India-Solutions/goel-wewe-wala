@@ -59,8 +59,8 @@ const getOrderEmailTemplate = (checkout) => {
         <body>
             <div class="container">
                 <div class="header">
-                    <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wala Logo">
-                    <h2>New Order Received - Goel Mewe Wala</h2>
+                    <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wale Logo">
+                    <h2>New Order Received - Goel Mewe Wale</h2>
                 </div>
                 <div class="section">
                     <h3>Order Information:</h3>
@@ -98,7 +98,7 @@ const getOrderEmailTemplate = (checkout) => {
                 </div>
                 <div class="footer">
                     <p>Thank you for your business!</p>
-                    <p>If you have any questions, feel free to <a href="mailto:support@Goel Mewe Wala.com">contact us</a>.</p>
+                    <p>If you have any questions, feel free to <a href="mailto:support@Goel Mewe Wale.com">contact us</a>.</p>
                 </div>
             </div>
         </body>
@@ -115,7 +115,7 @@ exports.checkout = async (req, res) => {
     (total, item) => total + item.price * item.quantity,
     0
   );
-  let shippingCost = 200;
+  let shippingCost = 0;
   let discountAmount = 0;
   let discountCupan = 0;
   if (userId) {
@@ -248,7 +248,7 @@ exports.checkout = async (req, res) => {
       await transporter.sendMail({
         from: "Panchgavya.amrit@gmail.com",
         to: "Panchgavya.amrit@gmail.com",
-        subject: "New Order Received from Goel Mewe Wala",
+        subject: "New Order Received from Goel Mewe Wale",
         html: getOrderEmailTemplate(checkout),
       });
 
@@ -264,7 +264,7 @@ exports.checkout = async (req, res) => {
     await transporter.sendMail({
       from: "Panchgavya.amrit@gmail.com",
       to: "Panchgavya.amrit@gmail.com",
-      subject: "New Order Received from Goel Mewe Wala",
+      subject: "New Order Received from Goel Mewe Wale",
       html: getOrderEmailTemplate(checkout),
     });
 

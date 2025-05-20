@@ -74,7 +74,7 @@ const Faq = () => {
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    1. What products do you offer at Goel Mewe Wala?
+                    1. What products do you offer at Goel Mewe Wale?
 
                   </button>
                 </h2>

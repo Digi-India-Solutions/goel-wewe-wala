@@ -77,7 +77,7 @@ const Header = ({refs, setRef}) => {
                 style={{ color: "var(--themeColor)" }}
                 direction=""
               >
-               Goel Mewe Wala is known for its premium quality dry fruits, including almonds, cashews, raisins, figs, and walnuts. Each product is packed with nutrition, purity, and rich taste — making them the perfect choice for health-conscious customers.
+               Goel Mewe Wale is known for its premium quality dry fruits, including almonds, cashews, raisins, figs, and walnuts. Each product is packed with nutrition, purity, and rich taste — making them the perfect choice for health-conscious customers.
 
               </marquee>
             </div>

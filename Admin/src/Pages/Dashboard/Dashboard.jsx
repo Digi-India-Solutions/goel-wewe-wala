@@ -51,12 +51,12 @@ const Dashboard = () => {
 
 
         {/* Manage Pincode Section */}
-        <div className="dashboard-card">
+        {/* <div className="dashboard-card">
           <i className="fa-solid fa-location-dot dashboard-icon"></i>
           <h4>Manage Pincode</h4>
           <p>View, add, or edit delivery pincodes.</p>
           <Link to="/all-pincodes" className="dashboard-link">Manage Pincode</Link>
-        </div>
+        </div> */}
 
         {/* Manage Banner Section */}
         <div className="dashboard-card">

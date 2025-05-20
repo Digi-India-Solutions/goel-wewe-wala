@@ -110,34 +110,34 @@ const Checkout = () => {
 
     const pincode = shippingAddress.postalCode;
 
-    if (tempSubtotal >= 6000) {
-      setShipping(0);
-    } else if (pincode) {
-      try {
-        const response = await axios.get(
-          "https://api.goelmewewale.com/api/all-pincode"
-        );
-        const pinCodeData = response.data.find(
-          (item) => item.pincode === parseInt(pincode)
-        );
-        if (pinCodeData) {
-          console.log(
-            "Shipping charge for pincode:",
-            pinCodeData.shippingCharge
-          );
-          setShipping(pinCodeData.shippingCharge);
-        } else {
-          setShipping(200);
-        }
-      } catch (error) {
-        console.error("Error fetching shipping charge:", error);
-        setShipping(200);
-      }
-    } else {
-      setShipping(200);
-    }
+    // if (tempSubtotal >= 6000) {
+    //   setShipping(0);
+    // } else if (pincode) {
+    //   try {
+    //     const response = await axios.get(
+    //       "https://api.goelmewewale.com/api/all-pincode"
+    //     );
+    //     const pinCodeData = response.data.find(
+    //       (item) => item.pincode === parseInt(pincode)
+    //     );
+    //     if (pinCodeData) {
+    //       console.log(
+    //         "Shipping charge for pincode:",
+    //         pinCodeData.shippingCharge
+    //       );
+    //       setShipping(pinCodeData.shippingCharge);
+    //     } else {
+    //       setShipping(200);
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching shipping charge:", error);
+    //     setShipping(200);
+    //   }
+    // } else {
+    //   setShipping(200);
+    // }
 
-    setTotal(tempSubtotal + (tempSubtotal >= 6000 ? 0 : shipping));
+    // setTotal(tempSubtotal + (tempSubtotal >= 6000 ? 0 : shipping));
   };
 
   const validateCouponCode = () => {
@@ -228,7 +228,7 @@ const Checkout = () => {
                 key: "rzp_live_FjN3xa6p5RsEl6",
                 amount: razorpayOrder.amount,
                 currency: "INR",
-                name: "Goel Mewe Wala",
+                name: "Goel Mewe Wale",
                 description: "Checkout Payment",
                 order_id: razorpayOrder.id,
                 handler: async (response) => {
