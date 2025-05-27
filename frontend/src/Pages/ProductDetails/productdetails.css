@@ -4,7 +4,6 @@
   margin-top: 10px;
 }
 
-
 .product-details {
   background-color: var(--backgroundColor);
   padding-bottom: 1rem;
@@ -81,12 +80,12 @@
 }
 
 .product-image-product {
-  width: 150px;
+  width: 100%;
   margin: auto;
-  position: absolute;
-  top: -120px;
-  left: 50px;
-  height: 150px;
+  /* position: absolute; */
+  /* top: -120px; */
+  /* left: 50px; */
+  height: 250px;
 }
 
 .descriptionsTabs {
@@ -120,11 +119,11 @@
     margin-top: 0rem;
   }
   .product-image-product {
-    width: 100px;
+    width: 100%;
     margin: auto;
-    position: absolute;
+    /* position: absolute; */
     top: -80px;
     left: 22px;
-    height: 100px;
+    height: 150px;
   }
 }

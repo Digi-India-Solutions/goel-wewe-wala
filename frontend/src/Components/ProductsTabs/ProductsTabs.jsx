@@ -168,14 +168,20 @@ const ProductsTabs = () => {
                     >
                       <div className="product-card">
                         {/* <Link to={"/product/product-details"}> */}
-                        <div className="product-image">
+                        <div
+                          className="product-image"
+                          onClick={() => handleViewDetails(product._id)}
+                        >
                           <img
                             src={product.productImage[0]}
                             alt={`Product ${index + 1}`}
                           />
                         </div>
                         <div className="p-2">
-                          <div className="productName">
+                          <div
+                            className="productName"
+                            onClick={() => handleViewDetails(product._id)}
+                          >
                             <h3 className="product-title">
                               {truncateText(product.productName, 3)}
                             </h3>
@@ -252,15 +258,9 @@ const ProductsTabs = () => {
                           >
                             <button
                               onClick={() => handleViewDetails(product._id)}
-                              className="add-to-cart"
+                              className="add-to-cart w-100"
                             >
                               ADD TO CART
-                            </button>
-                            <button
-                              onClick={() => handleViewDetails(product._id)}
-                              className="add-to-cart"
-                            >
-                              View Details
                             </button>
                           </div>
                         </div>

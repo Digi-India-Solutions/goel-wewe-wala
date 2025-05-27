@@ -370,14 +370,14 @@ const Hero = () => {
                 <div key={index}>
                   <div className="product-card">
                     {/* <Link to={"/product/product-details"}> */}
-                    <div className="product-image">
+                    <div className="product-image" onClick={() => handleViewDetails(product._id)}>
                       <img
                         src={product.productImage[0]}
                         alt={product.productName}
                       />
                     </div>
                     <div className="p-2">
-                      <div className="productName">
+                      <div className="productName" onClick={() => handleViewDetails(product._id)}>
                         <h3 className="product-title">
                           {truncateText(product.productName, 3)}
                           {/* {product.productName} */}
@@ -495,18 +495,9 @@ const Hero = () => {
                       >
                         <button
                           onClick={() => addToCart(product)}
-                          className="add-to-cart"
+                          className="add-to-cart w-100"
                         >
                           ADD TO CART
-                        </button>
-
-                        {/* remove conflict  */}
-                        <button
-                          onClick={() => handleViewDetails(product._id)}
-                          className="add-to-cart"
-                        >
-                          View Details{" "}
-                          <i class="bi bi-chevron-double-right"></i>
                         </button>
                       </div>
                     </div>

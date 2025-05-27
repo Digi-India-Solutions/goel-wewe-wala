@@ -254,7 +254,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { use } from "react";
 import { useDispatch } from "react-redux";
 
 const AllProduct = ({ refs, setRef }) => {
@@ -272,7 +271,9 @@ const AllProduct = ({ refs, setRef }) => {
 
   const fetchProducts = async (searchQuery) => {
     try {
-      const response = await axios.get("https://api.goelmewewale.com/api/get-product");
+      const response = await axios.get(
+        "https://api.goelmewewale.com/api/get-product"
+      );
       let filteredProducts = response.data.products.filter(
         (product) => product.productStatus === true
       );
@@ -386,7 +387,7 @@ const AllProduct = ({ refs, setRef }) => {
           content="Explore our wide range of products including Ghee, Agarbatthi, and other medicinal products. Shop now for the best prices and quality."
         />
       </Helmet>
-      <section className="productsPage responsive-margin">
+      <section className="productsPage">
         <div className="container">
           <div className="row">
             <div className="col-md-12 all-products product-top-spacing">
@@ -397,14 +398,20 @@ const AllProduct = ({ refs, setRef }) => {
                     className="col-md-3 col-6 pruduct-spacing"
                   >
                     <div className="product-card-page">
-                      <div className="product-image-product">
+                      <div
+                        className="product-image-product"
+                        onClick={() => handleViewDetails(product._id)}
+                      >
                         <img
                           src={product.productImage[0]}
                           alt={product.productName}
                           className="img-fluid"
                         />
                       </div>
-                      <div className="productName">
+                      <div
+                        className="productName"
+                        onClick={() => handleViewDetails(product._id)}
+                      >
                         <h3 className="product-title">{product.productName}</h3>
                         <div className="price">
                           {selectedWeights[product._id]
@@ -465,15 +472,9 @@ const AllProduct = ({ refs, setRef }) => {
                       >
                         <button
                           onClick={() => addToCart(product)}
-                          className="add-to-cart"
+                          className="add-to-cart w-100"
                         >
                           ADD TO CART
-                        </button>
-                        <button
-                          onClick={() => handleViewDetails(product._id)}
-                          className="add-to-cart"
-                        >
-                          View Details
                         </button>
                       </div>
                     </div>
