@@ -199,7 +199,7 @@ const ProductsTabs = () => {
                                     </span>
                                   </div>
                                   <div>
-                                    <span className="original-price">
+                                    <span className="original-price mobile-original-price">
                                       Off{" "}
                                       {
                                         selectedProductInfo.productDiscountPercentage

@@ -533,7 +533,7 @@ select:focus-visible {
   .stats-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 0;
+    padding: 1rem 0rem;
   }
 
   .slick-next {
