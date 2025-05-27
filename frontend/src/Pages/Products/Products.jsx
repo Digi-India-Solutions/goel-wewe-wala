@@ -208,8 +208,6 @@ const Products = () => {
                         />
                       </div>
 
-                      
-                      
                       <div className="p-2">
                         <div
                           className="productName"

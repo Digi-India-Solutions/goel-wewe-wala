@@ -46,7 +46,9 @@ const Hero = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("https://api.goelmewewale.com/api/get-product");
+      const response = await axios.get(
+        "https://api.goelmewewale.com/api/get-product"
+      );
       const productRecord = response.data.products;
       const filterbestseller = productRecord.filter(
         (x) => x.bestseller === true
@@ -222,7 +224,9 @@ const Hero = () => {
 
   const getArticalsData = async () => {
     try {
-      const res = await axios.get("https://api.goelmewewale.com/api/all-articals");
+      const res = await axios.get(
+        "https://api.goelmewewale.com/api/all-articals"
+      );
       setArticleArr(res.data); // Assuming the API returns an array of articles
     } catch (error) {
       console.log(error);
@@ -370,14 +374,20 @@ const Hero = () => {
                 <div key={index}>
                   <div className="product-card">
                     {/* <Link to={"/product/product-details"}> */}
-                    <div className="product-image" onClick={() => handleViewDetails(product._id)}>
+                    <div
+                      className="product-image"
+                      onClick={() => handleViewDetails(product._id)}
+                    >
                       <img
                         src={product.productImage[0]}
                         alt={product.productName}
                       />
                     </div>
                     <div className="p-2">
-                      <div className="productName" onClick={() => handleViewDetails(product._id)}>
+                      <div
+                        className="productName"
+                        onClick={() => handleViewDetails(product._id)}
+                      >
                         <h3 className="product-title">
                           {truncateText(product.productName, 3)}
                           {/* {product.productName} */}
@@ -400,7 +410,7 @@ const Hero = () => {
                                     </span>
                                   </div>
                                   <div>
-                                    <span className="original-price">
+                                    <span className="original-price mobile-original-price">
                                       Off{" "}
                                       {
                                         selectedWeights[product._id]

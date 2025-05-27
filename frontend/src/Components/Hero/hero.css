@@ -588,12 +588,12 @@ select:focus-visible {
   }
 
   .price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
 
   .current-price {
     font-size: 14px;
@@ -603,8 +603,11 @@ select:focus-visible {
     font-size: 16px;
   }
 
-  .original-price {
+  .mobile-original-price {
+    all: unset;
     font-size: 12px;
+    color: red;
+    font-weight: 500;
   }
 
   .hero-product {
