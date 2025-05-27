@@ -225,7 +225,7 @@ const Checkout = () => {
             if (paymentMethod === "Online") {
               const { razorpayOrder } = res.data;
               const options = {
-                key: "rzp_live_FjN3xa6p5RsEl6",
+                key: "rzp_live_dlEGBza0r8xE6D",
                 amount: razorpayOrder.amount,
                 currency: "INR",
                 name: "Goel Mewe Wale",
