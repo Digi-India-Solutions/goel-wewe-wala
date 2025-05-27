@@ -37,7 +37,7 @@ const TermsConditions = () => {
                     <i className="bi bi-house"></i>
                   </Link>
                   /
-                  <Link  className="text-white terms-link" to="/terms-conditions">
+                  <Link  className="text-white terms-link" to="/Pages/term-&-conditions">
                     Terms and Conditions
                   </Link>
                 </div>
