@@ -183,7 +183,9 @@ const ProductsTabs = () => {
                             onClick={() => handleViewDetails(product._id)}
                           >
                             <h3 className="product-title">
-                              {truncateText(product.productName, 3)}
+                              {product.productName.length > 15
+                                ? product.productName.slice(0, 15) + "..."
+                                : product.productName}{" "}
                             </h3>
                             <div className="price text-end">
                               {selectedProductInfo?.productDiscountPercentage >
@@ -198,8 +200,8 @@ const ProductsTabs = () => {
                                       </del>
                                     </span>
                                   </div>
-                                  <div>
-                                    <span className="original-price mobile-original-price">
+                                  <div className="mobile-original-price">
+                                    <span className="original-price">
                                       Off{" "}
                                       {
                                         selectedProductInfo.productDiscountPercentage

@@ -171,7 +171,7 @@
 }
 
 .hero-product {
-  padding: 20px 0px;
+  padding: 50px 0px;
 }
 
 .product-card {
@@ -223,20 +223,20 @@
 .product-title {
   font-size: 18px;
   font-weight: 500;
-  color: var(--themeColor);
+  color: black;
+  /* color: var(--themeColor); */
   /* margin: 8px 0; */
 }
 
 .current {
   font-size: 22px;
-  color: green;
+  color: red;
   font-weight: 600;
 }
 
 .current-price {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--green);
 }
 
 .original-price {
@@ -603,11 +603,17 @@ select:focus-visible {
     font-size: 16px;
   }
 
-  .mobile-original-price {
+  /* .mobile-original-price {
     all: unset;
     font-size: 12px;
     color: red;
     font-weight: 500;
+  } */
+
+  .mobile-original-price .original-price {
+    margin-top: -12.05rem;
+    margin-right: -8px;
+    font-size: 12px;
   }
 
   .hero-product {

@@ -389,7 +389,10 @@ const Hero = () => {
                         onClick={() => handleViewDetails(product._id)}
                       >
                         <h3 className="product-title">
-                          {truncateText(product.productName, 3)}
+                          {/* {truncateText(product.productName, 3)} */}
+                          {product.productName.length > 15
+                            ? product.productName.slice(0, 15) + "..."
+                            : product.productName}
                           {/* {product.productName} */}
                         </h3>
                         <div className="price text-end">
@@ -409,8 +412,8 @@ const Hero = () => {
                                       </del>
                                     </span>
                                   </div>
-                                  <div>
-                                    <span className="original-price mobile-original-price">
+                                  <div className="mobile-original-price">
+                                    <span className="original-price">
                                       Off{" "}
                                       {
                                         selectedWeights[product._id]
