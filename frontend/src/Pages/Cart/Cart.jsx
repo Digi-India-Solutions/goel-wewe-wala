@@ -8,11 +8,11 @@ const Cart = ({ refs, setRef }) => {
   const [cartItems, setCartItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
-  const loginValue = sessionStorage.getItem("Login")
+  const dispatch = useDispatch();
+  const loginValue = sessionStorage.getItem("Login");
 
   useEffect(() => {
-    window.scrollTo({ top: 0, });
+    window.scrollTo({ top: 0 });
 
     // Retrieve the cart data from sessionStorage
     const storedCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
@@ -29,16 +29,16 @@ const Cart = ({ refs, setRef }) => {
     }
     setCartItems(newCartItems);
     sessionStorage.setItem("VesLakshna", JSON.stringify(newCartItems)); // Update sessionStorage
-
-
   };
 
   // Function to delete an item from the cart
   const deleteItem = (productId) => {
-    const newCartItems = cartItems.filter(item => item.productId !== productId);
+    const newCartItems = cartItems.filter(
+      (item) => item.productId !== productId
+    );
     setCartItems(newCartItems);
     sessionStorage.setItem("VesLakshna", JSON.stringify(newCartItems)); // Update sessionStorage after deletion
-    dispatch({ type: 'ADD_PRODUCT', payload: ['ADD_PRODUCT', newCartItems] })
+    dispatch({ type: "ADD_PRODUCT", payload: ["ADD_PRODUCT", newCartItems] });
     setRef(!refs);
   };
 
@@ -47,13 +47,15 @@ const Cart = ({ refs, setRef }) => {
 
   // Calculate grand total
   const getGrandTotal = () => {
-    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+    return cartItems
+      .reduce((acc, item) => acc + item.price * item.quantity, 0)
+      .toFixed(2);
   };
 
   // Function to handle checkout redirect
   const handleCheckout = () => {
     // if (loginValue) {
-      navigate("/product/product-details/cart/checkout");
+    navigate("/product/product-details/cart/checkout");
     // } else {
     //   navigate("/login", { state: { from: "/product/product-details/cart/checkout" } });
     // }
@@ -62,14 +64,23 @@ const Cart = ({ refs, setRef }) => {
     <>
       <Helmet>
         <title>Shopping Cart - Your Items</title>
-        <meta name="description" content="View and manage items in your shopping cart." />
-        <meta name="keywords" content="shopping cart, e-commerce, checkout, products" />
+        <meta
+          name="description"
+          content="View and manage items in your shopping cart."
+        />
+        <meta
+          name="keywords"
+          content="shopping cart, e-commerce, checkout, products"
+        />
       </Helmet>
       <section className="minibreadCrumb">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/all-products" className="back-icon text-decoration-none text-black d-flex align-items-center gap-2">
+              <Link
+                to="/all-products"
+                className="back-icon text-decoration-none text-black d-flex align-items-center gap-2"
+              >
                 <i className="bi bi-arrow-left text-black"></i> Back to category
               </Link>
             </div>
@@ -90,12 +101,12 @@ const Cart = ({ refs, setRef }) => {
       </section>
       <section className="cart">
         <div className="container">
-          <div className="col-md-12">
-            <h3 className="text-center mb-5" style={{ color: "#5D473A" }}>Buy items worth <strong>₹6000</strong> or more to get free delivery!</h3>
-          </div>
           <h2>Shopping Cart</h2>
           <div className="table-responsive">
-            <table className="table table-bordered" style={{ borderColor: "var(--themeColor)" }}>
+            <table
+              className="table table-bordered"
+              style={{ borderColor: "var(--themeColor)" }}
+            >
               <thead>
                 <tr>
                   <th>Image</th>
@@ -112,7 +123,11 @@ const Cart = ({ refs, setRef }) => {
                   cartItems.map((item, index) => (
                     <tr key={item.productId}>
                       <td className="text-center">
-                        <img src={item.productImage} alt="Product" width="100" />
+                        <img
+                          src={item.productImage}
+                          alt="Product"
+                          width="100"
+                        />
                       </td>
                       <td>{item.productName}</td>
                       <td>{item.weight}</td>
@@ -162,10 +177,19 @@ const Cart = ({ refs, setRef }) => {
             </table>
           </div>
           <div className="d-flex justify-content-between mt-3 gap-2">
-            <button onClick={() => navigate("/all-products")} className="btn text-white d-flex justify-content-center align-items-center" style={{ width: '100vw' }}>
+            <button
+              onClick={() => navigate("/all-products")}
+              className="btn text-white d-flex justify-content-center align-items-center"
+              style={{ width: "100vw" }}
+            >
               Continue Shopping
-            </button> &nbsp;
-            <button onClick={handleCheckout} className="btn text-white d-flex justify-content-center align-items-center width-100vw" style={{ width: '100vw' }}>
+            </button>{" "}
+            &nbsp;
+            <button
+              onClick={handleCheckout}
+              className="btn text-white d-flex justify-content-center align-items-center width-100vw"
+              style={{ width: "100vw" }}
+            >
               Checkout
             </button>
           </div>
