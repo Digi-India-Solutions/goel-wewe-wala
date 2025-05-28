@@ -179,7 +179,7 @@ const Cart = ({ refs, setRef }) => {
           <div className="d-flex justify-content-between mt-3 gap-2">
             <button
               onClick={() => navigate("/all-products")}
-              className="btn text-white d-flex justify-content-center align-items-center"
+              className="btn text-white d-flex justify-content-center align-items-center py-3"
               style={{ width: "100vw" }}
             >
               Continue Shopping
@@ -187,7 +187,7 @@ const Cart = ({ refs, setRef }) => {
             &nbsp;
             <button
               onClick={handleCheckout}
-              className="btn text-white d-flex justify-content-center align-items-center width-100vw"
+              className="btn text-white d-flex justify-content-center align-items-center py-3 width-100vw"
               style={{ width: "100vw" }}
             >
               Checkout

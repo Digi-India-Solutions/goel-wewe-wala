@@ -64,12 +64,12 @@ strong {
 }
 
 .quantity-td {
-    display: flex;
-        justify-content: end;
-        border: none;
-        align-items: center;
-        margin-top: 2rem;
-  }
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  margin-top: 2.5rem;
+}
 
 @media (max-width: 768px) {
   table th,

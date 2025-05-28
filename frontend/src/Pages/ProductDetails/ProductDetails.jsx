@@ -72,7 +72,6 @@ const ProductDetails = ({ refs, setRef }) => {
       (option) => option.productweight === selectedWeight
     );
 
-    console.log(weightData);
     // If weight data is found, update price and stock availability
     if (weightData) {
       setPrice(weightData.productPrice); // Update price with the selected weight's price
@@ -82,6 +81,7 @@ const ProductDetails = ({ refs, setRef }) => {
       setWeightData(weightData); // Store the weight data for later use
     }
   };
+
   const addToCart = () => {
     if (!productDetails) return;
     if (quantity < 1) {
@@ -108,7 +108,7 @@ const ProductDetails = ({ refs, setRef }) => {
         productId: productDetails._id,
         productName: productDetails.productName,
         productImage: productDetails.productImage[0],
-        price: price, // Use updated price
+        price: finalPrice, // Use updated price
         weight: selectedWeight,
         quantity,
       };
@@ -248,7 +248,9 @@ const ProductDetails = ({ refs, setRef }) => {
                       </span>
                       <span>
                         <strong>Discount:</strong>{" "}
-                        <span className="text-danger">₹{discount}</span>
+                        <span className="text-danger">
+                          ₹{price - finalPrice}
+                        </span>
                         <span className="ms-1 text-primary">
                           ({Math.round(((price - finalPrice) / price) * 100)}%)
                         </span>
