@@ -167,7 +167,20 @@ const Header = () => {
                 <i class="fa-solid fa-box"></i> Manage Vouchers
               </Link>
             </li>
-            {/* <li className={isActive('/all-pincodes') || isActive("/add-pincode") || isActive("/edit-pincode") ? 'active' : ''}><Link to="/all-pincodes" onClick={handletoggleBtn}> <i class="fa-solid fa-location-dot"></i> Manage Pincode</Link></li> */}
+            <li
+              className={
+                isActive("/all-pincodes") ||
+                isActive("/add-pincode") ||
+                isActive("/edit-pincode")
+                  ? "active"
+                  : ""
+              }
+            >
+              <Link to="/all-pincodes" onClick={handletoggleBtn}>
+                {" "}
+                <i class="fa-solid fa-location-dot"></i> Manage Pincode
+              </Link>
+            </li>
             <li className={isActive("/all-users") ? "active" : ""}>
               <Link to="/all-users" onClick={handletoggleBtn}>
                 {" "}

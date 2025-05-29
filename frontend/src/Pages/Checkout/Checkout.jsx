@@ -22,7 +22,9 @@ const Checkout = () => {
   useEffect(() => {
     const getCupancode = async () => {
       try {
-        const res = await axios.get("https://api.goelmewewale.com/api/all-vouchers");
+        const res = await axios.get(
+          "https://api.goelmewewale.com/api/all-vouchers"
+        );
         if (res.status === 200) {
           setCupanCode(res.data.data);
         }

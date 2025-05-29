@@ -155,7 +155,7 @@ exports.checkout = async (req, res) => {
   if (pincode) {
     try {
       const response = await axios.get(
-        "https://api.panchgavyamrit.com/api/all-pincode"
+        "https://api.goelmewewale.com/api/all-pincode"
       );
       const pinCodeData = response.data.find(
         (item) => item.pincode === parseInt(pincode)
@@ -228,7 +228,7 @@ exports.checkout = async (req, res) => {
     // If payment method is online, create a Razorpay order
     if (paymentMethod === "Online") {
       const razorpayOrder = await razorpayInstance.orders.create({
-        amount: totalAmount * 100, // Razorpay expects amount in paise
+        amount: totalAmount * 100,
         currency: "INR",
         receipt: checkout._id.toString(),
         payment_capture: 1,
