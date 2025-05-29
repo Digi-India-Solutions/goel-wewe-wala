@@ -89,6 +89,66 @@ const ProductsTabs = () => {
     }));
   };
 
+  const addToCart = (product) => {
+    if (!product) return;
+
+    const selectedWeight = selectedWeights[product._id];
+    if (!selectedWeight) {
+      Swal.fire({
+        icon: "warning",
+        title: "Select Weight",
+        text: "Please select a weight before adding to cart.",
+      });
+      return;
+    }
+
+    const selectedInfo = product.productInfo.find(
+      (info) => info.productweight === selectedWeight
+    );
+
+    if (!selectedInfo) {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Selection",
+        text: "Selected weight is not available for this product.",
+      });
+      return;
+    }
+
+    const quantity = 1;
+    const price = selectedInfo.productFinalPrice;
+
+    const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
+    const isProductInCart = existingCart.some(
+      (item) => item.productId === product._id && item.weight === selectedWeight
+    );
+
+    if (isProductInCart) {
+      Swal.fire({
+        icon: "warning",
+        title: "Product Already in Cart",
+        text: "This product with the selected weight is already in your cart.",
+      });
+    } else {
+      const cartProduct = {
+        productId: product._id,
+        productName: product.productName,
+        productImage: product.productImage[0],
+        price: price,
+        weight: selectedWeight,
+        quantity,
+      };
+      existingCart.push(cartProduct);
+      sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
+      Swal.fire({
+        icon: "success",
+        title: "Added to Cart",
+        text: `${product.productName} has been added to your cart.`,
+      });
+      navigate("/cart");
+    }
+  };
+
   const handleViewDetails = (productId) => {
     const selectedWeight = selectedWeights[productId];
 
@@ -118,13 +178,6 @@ const ProductsTabs = () => {
     }
   };
 
-  function truncateText(text, wordLimit) {
-    const words = text.split(" ");
-    if (words.length > wordLimit) {
-      return words.slice(0, wordLimit).join(" ") + "...";
-    }
-    return text;
-  }
   return (
     <section className="products-tabs mt-3">
       <div className="container">
@@ -237,7 +290,7 @@ const ProductsTabs = () => {
                           <select
                             id={`pot-${product._id}`}
                             className="pot-select"
-                            value={selectedWeight || ""}
+                            value={selectedWeights[product._id] || ""}
                             onChange={(e) =>
                               handleWeightChange(product._id, e.target.value)
                             }
@@ -259,7 +312,7 @@ const ProductsTabs = () => {
                             }}
                           >
                             <button
-                              onClick={() => handleViewDetails(product._id)}
+                              onClick={() => addToCart(product)}
                               className="add-to-cart w-100"
                             >
                               ADD TO CART

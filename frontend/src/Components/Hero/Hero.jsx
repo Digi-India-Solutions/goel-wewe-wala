@@ -108,6 +108,56 @@ const Hero = () => {
     }
   };
 
+  const addToCart = (product) => {
+    if (!product) return;
+
+    const selected = selectedWeights[product._id];
+
+    if (!selected) {
+      Swal.fire({
+        icon: "error",
+        title: "Weight Not Selected",
+        text: "Please select a weight before adding to cart.",
+      });
+      return;
+    }
+
+    const quantity = 1;
+
+    const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
+    const isProductInCart = existingCart.some(
+      (item) =>
+        item.productId === product._id && item.weight === selected.weight
+    );
+
+    if (isProductInCart) {
+      Swal.fire({
+        icon: "warning",
+        title: "Product Already in Cart",
+        text: "This product with selected weight is already in your cart.",
+      });
+    } else {
+      const cartProduct = {
+        productId: product._id,
+        productName: product.productName,
+        productImage: product.productImage[0],
+        price: selected.price,
+        weight: selected.weight,
+        quantity,
+      };
+      existingCart.push(cartProduct);
+      sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
+
+      Swal.fire({
+        icon: "success",
+        title: "Added to Cart",
+        text: `${product.productName} has been added to your cart.`,
+      });
+
+      navigate("/cart");
+    }
+  };
+
   const handleViewDetails = (productId) => {
     if (!selectedWeights[productId]) {
       Swal.fire({
@@ -212,14 +262,6 @@ const Hero = () => {
     ],
   };
 
-  function truncateText(text, wordLimit) {
-    const words = text.split(" ");
-    if (words.length > wordLimit) {
-      return words.slice(0, wordLimit).join(" ") + "...";
-    }
-    return text;
-  }
-
   const [articleArr, setArticleArr] = useState([]);
 
   const getArticalsData = async () => {
@@ -238,53 +280,6 @@ const Hero = () => {
   }, []);
 
   // add by aman tiwari
-
-  const addToCart = (product) => {
-    if (!product) return;
-
-    const quantity = 1; // or get from state/input
-    const selectedWeight = product.productInfo[0].productweight; // or get from state/input
-    const price = product.productInfo[0].productFinalPrice; // or calculate based on selectedWeight
-
-    if (quantity < 1) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please select at least one item.",
-      });
-      return;
-    }
-
-    const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
-    const isProductInCart = existingCart.some(
-      (item) => item.productId === product._id
-    );
-
-    if (isProductInCart) {
-      Swal.fire({
-        icon: "warning",
-        title: "Product Already in Cart",
-        text: "This product is already in your cart.",
-      });
-    } else {
-      const cartProduct = {
-        productId: product._id,
-        productName: product.productName,
-        productImage: product.productImage[0],
-        price: price,
-        weight: selectedWeight,
-        quantity: quantity,
-      };
-      existingCart.push(cartProduct);
-      sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
-      Swal.fire({
-        icon: "success",
-        title: "Added to Cart",
-        text: `${product.productName} has been added to your cart.`,
-      });
-      navigate("/cart");
-    }
-  };
 
   return (
     <>
@@ -488,7 +483,11 @@ const Hero = () => {
                         onChange={(e) =>
                           handleWeightChange(product._id, e.target.value)
                         }
+                        value={selectedWeights[product._id]?.weight || ""}
                       >
+                        <option value="" disabled>
+                          Select Weight
+                        </option>
                         {product.productInfo.map((info) => (
                           <option
                             key={info.productweight}
@@ -498,6 +497,7 @@ const Hero = () => {
                           </option>
                         ))}
                       </select>
+
                       <div
                         className=""
                         style={{

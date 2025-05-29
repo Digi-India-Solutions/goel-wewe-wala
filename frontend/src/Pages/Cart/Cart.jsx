@@ -160,10 +160,14 @@ const Cart = ({ refs, setRef }) => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="7" className="text-center">
-                      Your cart is empty.
-                    </td>
-                  </tr>
+  <td colSpan="7" className="text-center py-5">
+    <div className="empty-cart-message">
+      <div className="cart-icon">🛒</div>
+      <div className="message-text">Oops! Your cart is empty.</div>
+    </div>
+  </td>
+</tr>
+
                 )}
                 <tr>
                   <td colSpan="6" className="text-end">

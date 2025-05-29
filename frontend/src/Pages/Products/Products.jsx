@@ -27,6 +27,8 @@ const Products = () => {
           setSelectedCategory(firstCategory._id);
           fetchProducts(firstCategory._id);
         }
+
+       
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -70,6 +72,7 @@ const Products = () => {
     fetchProducts(categoryId);
   };
 
+  // Updated handleWeightChange to store full info per productId
   const handleWeightChange = (productId, productWeight) => {
     const selectedProduct = products.find(
       (product) => product._id === productId
@@ -92,6 +95,56 @@ const Products = () => {
     }
   };
 
+  const addToCart = (product) => {
+    if (!product) return;
+
+    const selectedWeightInfo = selectedWeights[product._id];
+
+    if (!selectedWeightInfo || !selectedWeightInfo.weight) {
+      Swal.fire({
+        icon: "warning",
+        title: "Select Weight",
+        text: "Please select a weight before adding to cart.",
+      });
+      return;
+    }
+
+    const quantity = 1;
+
+    const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
+    // Check product + weight uniqueness in cart
+    const isProductInCart = existingCart.some(
+      (item) =>
+        item.productId === product._id &&
+        item.weight === selectedWeightInfo.weight
+    );
+
+    if (isProductInCart) {
+      Swal.fire({
+        icon: "warning",
+        title: "Product Already in Cart",
+        text: "This product with the selected weight is already in your cart.",
+      });
+    } else {
+      const cartProduct = {
+        productId: product._id,
+        productName: product.productName,
+        productImage: product.productImage[0],
+        price: selectedWeightInfo.price,
+        weight: selectedWeightInfo.weight,
+        quantity,
+      };
+      existingCart.push(cartProduct);
+      sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
+      Swal.fire({
+        icon: "success",
+        title: "Added to Cart",
+        text: `${product.productName} (${selectedWeightInfo.weight}) has been added to your cart.`,
+      });
+      navigate("/cart");
+    }
+  };
+
   const handleViewDetails = (productId) => {
     if (!selectedWeights[productId]) {
       Swal.fire({
@@ -105,56 +158,6 @@ const Products = () => {
     navigate(
       `/product/product-details/${productId}?weight=${selectedWeights[productId].weight}&price=${selectedWeights[productId].price}&stock=${selectedWeights[productId].stock}`
     );
-  };
-
-  // add by aman
-
-  const addToCart = (product) => {
-    if (!product) return;
-    console.log("product", product);
-
-    const quantity = 1; // or get from state/input
-    const selectedWeight = "500g"; // or get from state/input
-    const price = product.productInfo[0].productPrice; // or calculate based on selectedWeight
-
-    if (quantity < 1) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please select at least one item.",
-      });
-      return;
-    }
-
-    const existingCart = JSON.parse(sessionStorage.getItem("VesLakshna")) || [];
-    const isProductInCart = existingCart.some(
-      (item) => item.productId === product._id
-    );
-
-    if (isProductInCart) {
-      Swal.fire({
-        icon: "warning",
-        title: "Product Already in Cart",
-        text: "This product is already in your cart.",
-      });
-    } else {
-      const cartProduct = {
-        productId: product._id,
-        productName: product.productName,
-        productImage: product.productImage[0],
-        price: price,
-        weight: selectedWeight,
-        quantity: quantity,
-      };
-      existingCart.push(cartProduct);
-      sessionStorage.setItem("VesLakshna", JSON.stringify(existingCart));
-      Swal.fire({
-        icon: "success",
-        title: "Added to Cart",
-        text: `${product.productName} has been added to your cart.`,
-      });
-      navigate("/cart");
-    }
   };
 
   return (
@@ -251,6 +254,7 @@ const Products = () => {
                             </div>
                           </div>
                         </div>
+
                         <label
                           htmlFor={`pot-${product._id}`}
                           className="pot-label"
@@ -265,15 +269,17 @@ const Products = () => {
                           }
                           value={selectedWeights[product._id]?.weight || ""}
                         >
+                          <option value="">--- Please Select ---</option>
                           {product.productInfo.map((info) => (
                             <option
-                              key={info.productweight[0]}
+                              key={info.productweight}
                               value={info.productweight}
                             >
                               {info.productweight}
                             </option>
                           ))}
                         </select>
+
                         <div>
                           <button
                             onClick={() => addToCart(product)}
