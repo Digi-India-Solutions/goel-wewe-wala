@@ -10,3 +10,6 @@ BannerRouter.put("/update-banner/:id", upload.single("bannerImage"), updateBanne
 BannerRouter.delete("/delete-banner/:id", deleteBanner)
 
 module.exports = BannerRouter
+
+// hello this is banner router
+// this is a banner router file
