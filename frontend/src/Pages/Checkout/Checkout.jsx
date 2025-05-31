@@ -525,9 +525,9 @@ const Checkout = () => {
                     value={paymentMethod}
                     onChange={(e) => setPaymentMethod(e.target.value)}
                   >
-                    {/* <option value="">-- Please Select --</option> */}
+                    <option value="">-- Please Select --</option>
                     <option value="Online">Online</option>
-                    {/* <option value="Cash On Delivery">Cash On Delivery</option> */}
+                    <option value="Cash On Delivery">Cash On Delivery</option>
                   </select>
                 </div>
                 <button

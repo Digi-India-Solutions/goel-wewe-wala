@@ -27,8 +27,6 @@ const Products = () => {
           setSelectedCategory(firstCategory._id);
           fetchProducts(firstCategory._id);
         }
-
-       
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
