@@ -289,12 +289,12 @@ const Hero = () => {
         </a>
       </section>
       <section className="sidewhatsapp">
-        <a target="_blank" href="https://wa.me/9873745454">
+        <a target="_blank" href="https://wa.me/+91 9953843002">
           <i class="bi bi-whatsapp"></i>
         </a>
       </section>
       <section className="sidecall">
-        <a href="tel:+919873745454">
+        <a href="tel:+91+91 9953843002">
           <i class="bi bi-telephone"></i>
         </a>
       </section>

@@ -10,28 +10,28 @@ const getWelcomeEmailTemplate = (name) => `
         <table style="max-width: 600px; margin: 50px auto; background: #FFFFFF; border: 1px solid #E8E8E8; border-radius: 10px;">
             <tr>
                 <td style="background: #5D473A; padding: 20px; text-align: center;">
-                    <h1 style="color: #FFFFFF; font-size: 24px;">Welcome to Vedhlakshna</h1>
+                    <h1 style="color: #FFFFFF; font-size: 24px;">Welcome to Goel Mewe Wale</h1>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 20px;">
                     <h2 style="color: #333333; font-size: 20px; margin-bottom: 10px;">Hello ${name},</h2>
                     <p style="color: #555555; font-size: 16px; line-height: 1.5; margin: 0;">
-                        Thank you for signing up with <strong>Vedhlakshna</strong>. We are excited to have you on board!
+                        Thank you for signing up with <strong>Goel Mewe Wale</strong>. We are excited to have you on board!
                     </p>
                     <p style="color: #555555; font-size: 16px; line-height: 1.5; margin: 0; margin-top: 10px;">
-                        Vedhlakshna specializes in selling high-quality products like Cow Ghee, Chawanprash, and more. We are committed to providing you with the best products and service.
+                        Goel Mewe Wale specializes in selling high-quality products like Dry Fruits, Nuts and more. We are committed to providing you with the best products and service.
                     </p>
                 </td>
             </tr>
             <tr>
                 <td style="padding: 20px;">
                     <p style="color: #555555; font-size: 14px; line-height: 1.5; margin: 0;">
-                        If you have any questions, feel free to contact us at <strong>9873745454</strong>.
+                        If you have any questions, feel free to contact us at <strong>+91 9953843002</strong>.
                     </p>
                     <p style="color: #555555; font-size: 14px; line-height: 1.5; margin: 0; margin-top: 10px;">
                         Best regards,<br>
-                        <strong>The Vedhlakshna Team</strong>
+                        <strong>The Goel Mewe Wale Team</strong>
                     </p>
                 </td>
             </tr>
