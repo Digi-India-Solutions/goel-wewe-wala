@@ -10,17 +10,17 @@ const Faq = () => {
   }, []);
   return (
     <>
-      <Helmet>
-        <title>FAQ - Panchgavyamrit</title>
-        <meta
-          name="description"
-          content="Frequently Asked Questions about Panchgavyamrit and Shri Godham Mahatirth Pathmeda."
-        />
-        <meta
-          name="keywords"
-          content="FAQ, Panchgavyamrit, Gomata, Shri Godham Mahatirth Pathmeda, Goseva, Vedalakshana Gomata"
-        />
-      </Helmet>
+    <Helmet>
+    <title>FAQ - Goelmewewale | Your Trusted Dry Fruits & Seeds Partner</title>
+    <meta
+        name="description"
+        content="Find answers to frequently asked questions about Goelmewewale, your premium online store for high-quality dry fruits, nuts, seeds, and healthy snacks. Learn about our products, shipping, orders, and more."
+    />
+    <meta
+        name="keywords"
+        content="FAQ, Goelmewewale, dry fruits, dried fruits, nuts, seeds, healthy snacks, online store, e-commerce, quality dry fruits, best dry fruits, fresh dry fruits, organic dry fruits, almonds, cashews, walnuts, pistachios, raisins, dates, figs, apricots, sunflower seeds, pumpkin seeds, chia seeds, flax seeds, healthy eating, snack ideas, Goelmewewale FAQ, dry fruit delivery, order dry fruits online, shipping information, payment options, customer service, Goelmewewale products"
+    />
+</Helmet>
       <section className="breadcrumb">
         <div className="breadcrumb-overlay">
           <div className="container">

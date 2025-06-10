@@ -284,14 +284,16 @@ const Checkout = () => {
   return (
     <>
       <Helmet>
-        <title>Checkout - Secure Your Order Now</title>
+        <title>
+          Checkout - Goelmewewale | Secure Your Dry Fruit & Seed Order
+        </title>
         <meta
           name="description"
-          content="Complete your checkout process securely and efficiently. Enter shipping details, review your order summary, and confirm your order."
+          content="Securely complete your Goelmewewale order for premium dry fruits, nuts, and seeds. Review your cart, enter shipping and payment details, and confirm your purchase with confidence."
         />
         <meta
           name="keywords"
-          content="checkout, order summary, shipping details, secure payment, online store"
+          content="Goelmewewale checkout, secure checkout, dry fruit order, buy nuts online, seeds purchase, secure payment, online order, e-commerce checkout, shipping details, payment options, order confirmation, finalise order, healthy snacks delivery"
         />
       </Helmet>
       <section className="minibreadCrumb">

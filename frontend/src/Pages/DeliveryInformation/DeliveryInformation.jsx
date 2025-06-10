@@ -10,16 +10,19 @@ const DeliveryInformation = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Shipping Policy | Goel Mewe Wale</title>
-        <meta
-          name="description"
-          content="Learn about Goel Mewe Wale's shipping process, delivery areas, estimated delivery times, and shipping charges. We ensure fast and secure delivery of your dry fruits, nuts, and spices."
-        />
-        <meta name="keywords" content="shipping policy, delivery information, Goel Mewe Wale, shipping charges, order delivery" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://yourwebsite.com/delivery-information" />
-      </Helmet>
+     <Helmet>
+    <title>Shipping Policy - Goelmewewale | Fast & Fresh Dry Fruit Delivery</title>
+    <meta
+        name="description"
+        content="Understand Goelmewewale's shipping policy for fresh dry fruits, nuts, and seeds. Learn about our delivery times, shipping costs, and covered areas for a smooth and timely delivery right to your door."
+    />
+    <meta
+        name="keywords"
+        content="Goelmewewale shipping, dry fruit delivery, shipping policy, delivery information, shipping charges, estimated delivery, order tracking, shipping areas, fast delivery dry fruits, fresh product delivery, online dry fruit shipping, nuts delivery, seeds delivery, Goelmewewale logistics"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://goelmewewale.com/shipping-policy" />
+</Helmet>
 
       <section className="breadcrumb">
         <div className="breadcrumb-overlay">

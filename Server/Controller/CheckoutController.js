@@ -59,7 +59,7 @@ const getOrderEmailTemplate = (checkout) => {
         <body>
             <div class="container">
                 <div class="header">
-                    <img src="https://panchgavyamrit.com/static/media/Logo.e4770e51e9e2f1f1d58d.png" alt="Goel Mewe Wale Logo">
+                    <img src="https://res.cloudinary.com/dfet60ou1/image/upload/v1749555059/c968b8f6-0f81-4b71-afc8-77cbb3c3ff54_f3zekt.jpg" alt="Goel Mewe Wale Logo">
                     <h2>New Order Received - Goel Mewe Wale</h2>
                 </div>
                 <div class="section">
@@ -246,8 +246,8 @@ exports.checkout = async (req, res) => {
       // Send welcome email
       console.log("getOrderEmailTemplate:==", checkout);
       await transporter.sendMail({
-        from: "Panchgavya.amrit@gmail.com",
-        to: "Panchgavya.amrit@gmail.com",
+        from: "goelmewewale@gmail.com",
+        to: "goelmewewale@gmail.com",
         subject: "New Order Received from Goel Mewe Wale",
         html: getOrderEmailTemplate(checkout),
       });
@@ -262,8 +262,8 @@ exports.checkout = async (req, res) => {
     await checkout.save();
     // Send welcome email
     await transporter.sendMail({
-      from: "Panchgavya.amrit@gmail.com",
-      to: "Panchgavya.amrit@gmail.com",
+      from: "goelmewewale@gmail.com",
+      to: "goelmewewale@gmail.com",
       subject: "New Order Received from Goel Mewe Wale",
       html: getOrderEmailTemplate(checkout),
     });

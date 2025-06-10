@@ -11,18 +11,18 @@ const About = () => {
   }, []);
   return (
     <>
-      <Helmet>
-        <title>About Us - Shri Godham Mahatirtha Pathmeda</title>
-        <meta
-          name="description"
-          content="Learn about Shri Godham Mahatirtha Pathmeda, a revolutionary initiative for Gomata protection, Ayurveda medicine, and cultural preservation in India."
-        />
-        <meta
-          name="keywords"
-          content="Gomata, Gomata protection, Goseva Mahabhiyan, Ayurveda medicine, Vedalakshana Gomata, Shri Godham Mahatirtha Pathmeda, Gomata ashrams, environmental refinement, Indian culture, Goseva, Dhenu conservation, sustainable development"
-        />
-        <meta name="author" content="Shri Godham Mahatirtha" />
-      </Helmet>
+    <Helmet>
+    <title>About Us - Goelmewewale | Your Destination for Premium Dry Fruits & Seeds</title>
+    <meta
+        name="description"
+        content="Discover Goelmewewale, a leading online store offering a wide selection of high-quality, fresh, and nutritious dry fruits, nuts, and seeds. Learn about our commitment to quality, sourcing, and delivering healthy snacking options to your doorstep."
+    />
+    <meta
+        name="keywords"
+        content="About Us, Goelmewewale, dry fruits, nuts, seeds, online store, e-commerce, quality dry fruits, fresh dry fruits, nutritious snacks, healthy eating, premium dry fruits, organic dry fruits, ethical sourcing, customer satisfaction, our story, mission, vision, Goelmewewale values, healthy lifestyle, superfoods, snack solutions, dry fruit suppliers, online grocery dry fruits"
+    />
+    <meta name="author" content="Goelmewewale Team" />
+</Helmet>
       <section className="breadcrumb">
         <div className="breadcrumb-overlay">
           <div className="container">
@@ -56,7 +56,7 @@ const About = () => {
         <div className="container">
           <div className="about_content">
             <div className="heading">
-              <h2>About Us – GoEalWewala</h2>
+              <h2>About Us – Goel Mewe Wale</h2>
             </div>
             <p>
             At Goel Mewe Wale, we bring you the finest selection 

@@ -131,12 +131,16 @@ const AllProduct = ({ refs, setRef }) => {
   return (
     <>
       <Helmet>
-        <title>Products - Medicinal Ghee, Agarbatthi, and More</title>
-        <meta
-          name="description"
-          content="Explore our wide range of products including Ghee, Agarbatthi, and other medicinal products. Shop now for the best prices and quality."
-        />
-      </Helmet>
+    <title>Our Products - Goelmewewale | Premium Dry Fruits, Nuts & Seeds</title>
+    <meta
+        name="description"
+        content="Explore Goelmewewale's extensive range of high-quality dry fruits, nutritious nuts, and healthy seeds. Discover fresh almonds, cashews, walnuts, pistachios, dates, raisins, chia seeds, pumpkin seeds, and more for a healthier lifestyle."
+    />
+    <meta
+        name="keywords"
+        content="Goelmewewale products, buy dry fruits online, premium nuts, healthy seeds, fresh almonds, quality cashews, organic walnuts, pistachios for sale, sweet dates, natural raisins, crunchy figs, dried apricots, sunflower seeds, pumpkin seeds, chia seeds, flax seeds, healthy snacks, superfoods, bulk dry fruits, dry fruit delivery, best prices dry fruits, online dry fruit store, Goelmewewale shop"
+    />
+</Helmet>
       <section className="productsPage">
         <div className="container">
           <div className="row">

@@ -88,10 +88,10 @@ const ForgetPassword = () => {
   return (
     <>
       <Helmet>
-        <title>Forgot Password - Panchgavyamrit</title>
+        <title>Forgot Password - Goelmewewale</title>
         <meta
           name="description"
-          content="Reset your password by entering the email associated with your Panchgavyamrit account. You will receive an OTP for verification."
+          content="Reset your password by entering the email associated with your Goelmewewale account. You will receive an OTP for verification."
         />
       </Helmet>
       <section className="forget-password">

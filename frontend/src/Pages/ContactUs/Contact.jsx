@@ -12,45 +12,48 @@ const Contact = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
-    number: '',
+    number: "",
     subject: "",
-    message: ""
-  })
+    message: "",
+  });
 
   const getInputData = (e) => {
-    const { name, value } = e.target
-    setData({ ...data, [name]: value })
-  }
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
 
   const postData = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const res = await axios.post("https://api.goelmewewale.com/api/send-enquery", data)
+      const res = await axios.post(
+        "https://api.goelmewewale.com/api/send-enquery",
+        data
+      );
       if (res.status === 200) {
         Swal.fire({
-          title: 'Success!',
-          text: 'Your enquiry has been sent successfully.',
-          icon: 'success',
-          confirmButtonText: 'Ok'
+          title: "Success!",
+          text: "Your enquiry has been sent successfully.",
+          icon: "success",
+          confirmButtonText: "Ok",
         });
         setData({
           name: "",
           email: "",
-          number: '',
+          number: "",
           subject: "",
-          message: ""
-        })
+          message: "",
+        });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       Swal.fire({
-        title: 'Error!',
-        text: 'There was an issue sending your enquiry.',
-        icon: 'error',
-        confirmButtonText: 'Try Again'
+        title: "Error!",
+        text: "There was an issue sending your enquiry.",
+        icon: "error",
+        confirmButtonText: "Try Again",
       });
     }
-  }
+  };
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -58,26 +61,26 @@ const Contact = () => {
   }, []);
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Panchgavyamrit</title>
-        <meta
-          name="description"
-          content="Get in touch with us through phone, email, or by filling out the contact form on our website. We are here to assist you with any inquiries."
-        />
-        <meta
-          name="keywords"
-          content="contact, support, phone, email, contact form, inquiries, customer service"
-        />
-        <meta property="og:title" content="Contact Us | Your Company Name" />
-        <meta
-          property="og:description"
-          content="Get in touch with us through phone, email, or by filling out the contact form on our website."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://panchgavyamrit.com" />
-        <meta property="og:image" content="https://panchgavyamrit.com/" />
-        <link rel="canonical" href="https://panchgavyamrit.com" />
-      </Helmet>
+    <Helmet>
+    <title>Contact Us - Goelmewewale | Get in Touch for Dry Fruits & Seeds</title>
+    <meta
+        name="description"
+        content="Have a question about Goelmewewale's premium dry fruits, nuts, or seeds? Contact our friendly customer support team via phone, email, or our online form for assistance with orders, products, or any inquiries."
+    />
+    <meta
+        name="keywords"
+        content="contact Goelmewewale, Goelmewewale support, customer service, dry fruit inquiry, nuts questions, seeds help, email Goelmewewale, call Goelmewewale, contact form, bulk orders, product support, shipping questions, online store contact"
+    />
+    <meta property="og:title" content="Contact Goelmewewale - Your Dry Fruits & Seeds Experts" />
+    <meta
+        property="og:description"
+        content="Reach out to Goelmewewale for any inquiries regarding our premium dry fruits, nuts, and seeds. We're here to help!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://goelmewewale.com/contact-us" />
+    <meta property="og:image" content="https://goelmewewale.com/images/goelmewewale-share-image.jpg" />
+    <link rel="canonical" href="https://goelmewewale.com/contact-us" />
+</Helmet>
 
       <section className="breadcrumb">
         <div className="breadcrumb-overlay">
@@ -151,7 +154,7 @@ const Contact = () => {
                       </h5>
                     </div>
                     <address className="contact-address">
-                    Shop.141 Sec 24, Pocket 11  Rohini  Delhi.
+                      Shop.141 Sec 24, Pocket 11 Rohini  Delhi.
                     </address>
                   </div>
                 </div>
@@ -208,23 +211,58 @@ const Contact = () => {
                 <form onSubmit={postData}>
                   <div className="contact-form-field">
                     <label htmlFor="name">Your Name</label>
-                    <input type="text" name="name" value={data.name} placeholder="Full Name" required onChange={getInputData} />
+                    <input
+                      type="text"
+                      name="name"
+                      value={data.name}
+                      placeholder="Full Name"
+                      required
+                      onChange={getInputData}
+                    />
                   </div>
                   <div className="contact-form-field">
                     <label htmlFor="name">Your Number</label>
-                    <input type="number" name="number" value={data.number} placeholder="Phone Number" required onChange={getInputData} />
+                    <input
+                      type="number"
+                      name="number"
+                      value={data.number}
+                      placeholder="Phone Number"
+                      required
+                      onChange={getInputData}
+                    />
                   </div>
                   <div className="contact-form-field">
                     <label htmlFor="email">E-Mail Address</label>
-                    <input type="email" name="email" value={data.email} placeholder="Email" required onChange={getInputData} />
+                    <input
+                      type="email"
+                      name="email"
+                      value={data.email}
+                      placeholder="Email"
+                      required
+                      onChange={getInputData}
+                    />
                   </div>
                   <div className="contact-form-field">
                     <label htmlFor="subject">Subject</label>
-                    <input type="text" name="subject" value={data.subject} placeholder="Subject" required onChange={getInputData} />
+                    <input
+                      type="text"
+                      name="subject"
+                      value={data.subject}
+                      placeholder="Subject"
+                      required
+                      onChange={getInputData}
+                    />
                   </div>
                   <div className="contact-form-field">
                     <label htmlFor="subject">Message</label>
-                    <textarea name="message" id="" value={data.message} placeholder="Message" required onChange={getInputData}></textarea>
+                    <textarea
+                      name="message"
+                      id=""
+                      value={data.message}
+                      placeholder="Message"
+                      required
+                      onChange={getInputData}
+                    ></textarea>
                   </div>
                   <div className="contact-form-field text-center">
                     <button>Submit</button>

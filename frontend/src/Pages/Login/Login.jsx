@@ -60,10 +60,10 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login - Panchgavyamrit</title>
+        <title>Login - Goelmewewale</title>
         <meta
           name="description"
-          content="Login to your Panchgavyamrit account to access your dashboard and track your orders. If you are new, create an account to get started."
+          content="Login to your Goelmewewale account to access your dashboard and track your orders. If you are new, create an account to get started."
         />
       </Helmet>
       <section className="login">
